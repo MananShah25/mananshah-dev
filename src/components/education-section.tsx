@@ -4,8 +4,9 @@ import { site } from "@/lib/content";
 export function EducationSection() {
   return (
     <div className="grid gap-5 md:grid-cols-2">
-      {site.education.map((edu) => (
-        <article key={edu.school} className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface">
+      {site.education.map((edu, i) => (
+        // Cards slide in from opposite sides
+        <article key={edu.school} data-reveal={i % 2 === 0 ? "left" : "right"} className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface">
           <div className="relative aspect-video">
             <Image
               src={edu.image}

@@ -6,7 +6,7 @@ export function OpenSourceSection() {
   return (
     <div className="flex flex-col gap-5">
       {openSource.map((c) => (
-        <article key={c.url} className="rounded-xl border border-border bg-surface p-6">
+        <article key={c.url} data-reveal="zoom" className="rounded-xl border border-border bg-surface p-6">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <p className="font-semibold">{c.project}</p>
             <span className="font-mono text-xs text-muted">

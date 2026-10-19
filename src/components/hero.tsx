@@ -55,7 +55,7 @@ export function Hero() {
             preload
             fetchPriority="high"
             sizes="(min-width: 768px) 288px, 256px"
-            className="object-cover object-top"
+            className="object-cover object-[center_20px]"
           />
         </div>
       </div>

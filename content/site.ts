@@ -13,7 +13,7 @@ export const site: SiteContent = {
     tagline: "M.S. Computer Science, Indiana University · May 2026",
     about:
       "Machine Learning Engineer and Researcher with hands-on experience in building NLP, LLM, and vision systems for academic and industry applications. Adept at designing deep learning pipelines, applying statistical rigor, and optimizing models for real-world deployments. Published in peer-reviewed journals and skilled in transforming ideas into scalable, ethical AI systems.",
-    photo: "/img/manan_subject1.png",
+    photo: "/img/portfolio_pic_enh1_subj.png",
     resumePath: "/pdf/Manan_Shah_Resume.pdf",
   },
 
@@ -83,13 +83,14 @@ export const site: SiteContent = {
       description:
         "Built CNN-LSTM hybrid models for financial forecasting and deployed ONNX models to embedded systems with optimized runtime paths. Executed backtesting simulations and managed live threshold recalibration on AWS EC2 using CI/CD pipelines.",
     },
-    {
-      company: "GNVS Institute",
-      role: "Software Developer Intern",
-      dates: "Dec 2022 – May 2023",
-      description:
-        "Developed a career-networking Android application in Kotlin with sprint-based feature delivery and Firebase integration. Cross-ported the platform to Flutter with modular architecture while managing CI/CD pipelines and staged releases.",
-    },
+    // Hidden from the site; uncomment this block to show it again.
+    // {
+    //   company: "GNVS Institute",
+    //   role: "Software Developer Intern",
+    //   dates: "Dec 2022 – May 2023",
+    //   description:
+    //     "Developed a career-networking Android application in Kotlin with sprint-based feature delivery and Firebase integration. Cross-ported the platform to Flutter with modular architecture while managing CI/CD pipelines and staged releases.",
+    // },
   ],
 
   skills: [

@@ -4,7 +4,7 @@ export function ExperienceSection() {
   return (
     <ol className="relative border-l border-border">
       {site.experience.map((job) => (
-        <li key={`${job.company}-${job.role}`} className="relative pb-12 pl-8 last:pb-0">
+        <li key={`${job.company}-${job.role}`} data-reveal="left" className="relative pb-12 pl-8 last:pb-0">
           <span
             className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-bg bg-accent"
             aria-hidden="true"

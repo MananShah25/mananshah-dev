@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
+import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/lib/content";
 import { SITE_URL } from "@/lib/site-url";
@@ -38,8 +39,10 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-// Runs before first paint so a saved light/dark choice never flashes the wrong theme
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
+// Runs before first paint: applies the saved light/dark choice (no flash of the wrong theme),
+// and arms scroll animations unless the visitor's OS asks for reduced motion. If the app's JS
+// hasn't started within 4s, animations are disarmed so content can never stay hidden.
+const headScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.setAttribute("data-motion","on");setTimeout(function(){if(!window.__revealReady)d.removeAttribute("data-motion")},4000)}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -50,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: headScript }} />
       </head>
       <body className="flex min-h-full flex-col">
         <a
@@ -64,6 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
+        <RevealObserver />
       </body>
     </html>
   );
