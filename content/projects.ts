@@ -66,6 +66,44 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "inspection-station",
+    title: "Automated Inspection & Reject Station",
+    kind: "Personal project",
+    tagline:
+      "A simulated PLC inspection station verified like a safety-critical system: a spec-derived test plan, one Python harness for a simulation model and the live PLC runtime, and SQLite traceability.",
+    highlights: ["24-scenario test plan, 24/24 on the model", "6 integration defects root-caused", "Live-validated over Modbus TCP"],
+    tags: ["OpenPLC", "IEC 61131-3 Ladder Logic", "Python", "Pymodbus", "Modbus TCP", "pytest", "SQLite", "Docker"],
+    // No public repo yet: add `github` here once it's pushed
+    links: {},
+    caseStudy: {
+      problem:
+        "A controller that decides whether each unit passes or gets pushed into a reject bin has to fail safe: a lost E-stop signal, an open guard, or a pusher that never confirms its stroke must stop motion and latch a fault. The goal was to verify that behavior against a written spec and keep evidence that can be audited.",
+      approach: [
+        "Spec first: the state machine, I/O map and a rung-by-rung ladder specification were written before any test code, and they serve as the test oracle.",
+        "A seven-state controller with 19 field I/O points (12 inputs, 7 outputs), written in IEC 61131-3 ladder logic and running on the OpenPLC Runtime in Docker.",
+        "Fail-safe design: healthy-high E-stop and guard inputs, latched fault codes, a rising-edge reset that only clears when every safety condition is healthy, an extend/retract interlock, and pusher motion confirmed by end-of-stroke sensors within 1,500 ms timeouts.",
+        "A 24-scenario test plan in five categories (happy path, safety, fault handling, timing and traceability), each scenario executable as a Python test case.",
+        "One harness, two fidelity levels: scenarios use named signals only, and a backend switch runs the same suite against an in-memory Python model or the live PLC runtime over Modbus TCP.",
+        "Each completed test cycle is logged to SQLite with serial, result, failure reason and cycle time, with SQL reports for yield, ranked reject reasons, mean and p95 cycle time, and throughput.",
+      ],
+      results: {
+        rows: [
+          { metric: "Scenario suite on the in-memory model", value: "24 / 24 pass" },
+          { metric: "Integration defects root-caused and fixed", value: "6" },
+          { metric: "Live runtime over Modbus TCP", value: "Representative subset" },
+          { metric: "Live traceability records", value: "PASS 833 ms · FAIL 753 ms" },
+        ],
+        note: "The live subset covered the ready state, a pass cycle, a reject cycle, E-stop, guard, both pusher timeouts, unstable vision, counters and SQLite records. Defects included scan-order bugs in state transitions, competing rungs driving the conveyor, and a fault timer bound to the wrong generated instance.",
+      },
+      limitations: [
+        "Simulation only: every sensor, the vision result and the safety inputs are simulated signals, with no physical PLC, sensors or pneumatics. This is simulation-based testing with live-runtime validation, not hardware-in-the-loop.",
+        "All 24 scenarios have run on the model; only a representative subset has run against the live runtime so far.",
+        "Fault 160 (extend and retract commanded together) has no scenario yet.",
+        "Cycle time is measured on the host, because the PLC's cycle-time register is not yet populated.",
+      ],
+    },
+  },
+  {
     slug: "neural-compression-pipeline",
     title: "2-Stage Neural Compression Pipeline",
     kind: "Team project",
