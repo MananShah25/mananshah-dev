@@ -70,6 +70,13 @@ export const site: SiteContent = {
 
   experience: [
     {
+      company: "METY Foundation",
+      role: "Software Developer",
+      dates: "Jun 2026 – Present",
+      description:
+        "Built the mobile app for an AI-powered adaptive tutoring platform in React and Capacitor (Android): authentication, learning-goal creation with async job progress, a self-assessment wizard, streaming tutor chat with understanding checks and diagnostic probes, and a learning dashboard with mastery charts, concept maps and material upload.",
+    },
+    {
       company: "NMIMS University",
       role: "Research Assistant",
       dates: "Dec 2023 – May 2024",
