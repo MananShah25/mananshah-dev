@@ -39,16 +39,16 @@ export default function Home() {
         <ExperienceSection />
       </Section>
 
+      <Section id="education" eyebrow="Background" title="Education">
+        <EducationSection />
+      </Section>
+
       <Section id="open-source" eyebrow="Community" title="Open Source Contributions">
         <OpenSourceSection />
       </Section>
 
       <Section id="skills" eyebrow="Toolbox" title="Skills">
         <Skills />
-      </Section>
-
-      <Section id="education" eyebrow="Background" title="Education">
-        <EducationSection />
       </Section>
 
       <Section id="contact" eyebrow="Say hello" title="Contact">
