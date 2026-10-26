@@ -5,32 +5,6 @@ import type { OpenSourceContribution, Project } from "@/lib/types";
 // Featured projects (with `caseStudy`) get a page at /projects/<slug>, in this order.
 export const projects: Project[] = [
   {
-    slug: "lidnerf",
-    title: "LIDNeRF",
-    kind: "Research · Peer-reviewed publication",
-    tagline:
-      "Language-guided editing of 3D NeRF scenes: describe an edit in words and it is optimized into the whole scene.",
-    highlights: ["Peer-reviewed journal paper", "IJIIT · Vol. 22", "Open access"],
-    tags: ["NeRF", "PyTorch", "InstructDiffusion", "Lang-SAM", "CLIP", "OpenCV"],
-    links: { paper: "https://www.igi-global.com/article/lidnerf/369336" },
-    caseStudy: {
-      credits:
-        "Vaishali Kulkarni, Khushal Hemant Sharma, Manan Shah, Aniruddh Vinay Kulkarni · International Journal of Intelligent Information Technologies (IJIIT), Vol. 22 · DOI 10.4018/IJIIT.369336",
-      problem:
-        "Neural radiance fields (NeRF) reconstruct high-fidelity 3D scenes from sparse 2D images, but editing those scenes, such as adding, removing, or replacing an object, remains a significant challenge.",
-      approach: [
-        "InstructDiffusion generates the requested edit on a rendered view from a plain-language instruction.",
-        "Lang-SAM builds a precise mask from the text description, confining the edit to the target region and cleaning up the noisy diffusion output.",
-        "An iterative dataset update renders views from the NeRF, edits them with the diffusion model, and uses the edited views to supervise reconstruction, so the edit lands in the 3D scene rather than a single image.",
-      ],
-      myRole:
-        "As research assistant, I engineered the multi-stage NeRF editor in PyTorch and CLIP, optimized multi-view consistency using OpenCV, and set up reproducible research workflows that led to the co-authored publication.",
-      results: {
-        note: "The paper evaluates the method qualitatively, showing targeted, localized edits including object addition, removal, and replacement. It does not report quantitative benchmarks.",
-      },
-    },
-  },
-  {
     slug: "adas-validation-harness",
     title: "ADAS Validation Harness",
     kind: "Personal project",
@@ -63,6 +37,32 @@ export const projects: Project[] = [
         "The controllers are deliberately simple baselines; the harness exists to catch where they fall short.",
         "The end-to-end vision run uses a synthesized clip, which validates the pipeline wiring but supports no detection-accuracy claim.",
       ],
+    },
+  },
+  {
+    slug: "lidnerf",
+    title: "LIDNeRF",
+    kind: "Research · Peer-reviewed publication",
+    tagline:
+      "Language-guided editing of 3D NeRF scenes: describe an edit in words and it is optimized into the whole scene.",
+    highlights: ["Peer-reviewed journal paper", "IJIIT · Vol. 22", "Open access"],
+    tags: ["NeRF", "PyTorch", "InstructDiffusion", "Lang-SAM", "CLIP", "OpenCV"],
+    links: { paper: "https://www.igi-global.com/article/lidnerf/369336" },
+    caseStudy: {
+      credits:
+        "Vaishali Kulkarni, Khushal Hemant Sharma, Manan Shah, Aniruddh Vinay Kulkarni · International Journal of Intelligent Information Technologies (IJIIT), Vol. 22 · DOI 10.4018/IJIIT.369336",
+      problem:
+        "Neural radiance fields (NeRF) reconstruct high-fidelity 3D scenes from sparse 2D images, but editing those scenes, such as adding, removing, or replacing an object, remains a significant challenge.",
+      approach: [
+        "InstructDiffusion generates the requested edit on a rendered view from a plain-language instruction.",
+        "Lang-SAM builds a precise mask from the text description, confining the edit to the target region and cleaning up the noisy diffusion output.",
+        "An iterative dataset update renders views from the NeRF, edits them with the diffusion model, and uses the edited views to supervise reconstruction, so the edit lands in the 3D scene rather than a single image.",
+      ],
+      myRole:
+        "As research assistant, I engineered the multi-stage NeRF editor in PyTorch and CLIP, optimized multi-view consistency using OpenCV, and set up reproducible research workflows that led to the co-authored publication.",
+      results: {
+        note: "The paper evaluates the method qualitatively, showing targeted, localized edits including object addition, removal, and replacement. It does not report quantitative benchmarks.",
+      },
     },
   },
   {
