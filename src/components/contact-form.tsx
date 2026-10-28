@@ -48,11 +48,12 @@ export function ContactForm() {
         </label>
       </div>
 
+      <label htmlFor="contact-name" className="text-sm font-medium">
+        Name
+        <input id="contact-name" name="name" required maxLength={100} autoComplete="name" defaultValue={fields?.name} className={inputClass} />
+      </label>
+
       <div className="grid gap-5 sm:grid-cols-2">
-        <label htmlFor="contact-name" className="text-sm font-medium">
-          Name
-          <input id="contact-name" name="name" required maxLength={100} autoComplete="name" defaultValue={fields?.name} className={inputClass} />
-        </label>
         <label htmlFor="contact-email" className="text-sm font-medium">
           Email
           <input
@@ -63,6 +64,19 @@ export function ContactForm() {
             maxLength={200}
             autoComplete="email"
             defaultValue={fields?.email}
+            className={inputClass}
+          />
+        </label>
+        <label htmlFor="contact-phone" className="text-sm font-medium">
+          Phone <span className="font-normal text-muted">(optional)</span>
+          <input
+            id="contact-phone"
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            maxLength={25}
+            autoComplete="tel"
+            defaultValue={fields?.phone}
             className={inputClass}
           />
         </label>
