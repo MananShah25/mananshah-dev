@@ -66,6 +66,41 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "cutoff",
+    title: "Cutoff",
+    kind: "Personal project · In progress",
+    tagline:
+      "A CPU regression engine for RISC-V that estimates when more random testing is unlikely to find a new bug, and stops itself.",
+    highlights: ["12,839 programs/s on 8 workers", "201-bug fire drill self-test", "Byte-identical results on resume"],
+    tags: ["C++20", "Verilator", "RISC-V RV32I", "PicoRV32", "CMake", "GoogleTest", "Good-Turing estimation"],
+    links: { github: "https://github.com/MananShah25/Cutoff" },
+    caseStudy: {
+      problem:
+        "Random-instruction regressions on a CPU usually run until someone decides they have run long enough. That decision is a guess, while simulation time is a real cost. Software fuzzing has statistical estimators for exactly this question; Cutoff applies them to CPU verification.",
+      approach: [
+        "Generates seeded, reproducible random RV32I programs from four generator profiles (G0 to G3).",
+        "Runs each program on the Verilated PicoRV32 core and on a reference model in parallel worker processes, with three checker levels: final state, ordered store trace, and RVFI retirement events.",
+        "Tracks which behaviours the programs have exercised and uses Good-Turing estimation to gauge how likely the next program is to exercise something new; a stop rule ends the run once that risk stays below a threshold.",
+        "A fire drill plants 201 bugs (mutants) in an instrumented copy of the core and measures how many a campaign finds, and how many it had found when the stop rule would have fired.",
+        "Results are deterministic: worker results are re-ordered by program id, runs can be interrupted and resumed exactly, and any failing program can be replayed.",
+      ],
+      results: {
+        rows: [
+          { metric: "Throughput, 8 workers (without / with behaviour tracking)", value: "22,220 / 12,839 programs/s" },
+          { metric: "Stop rule at ε = 0.001, original core", value: "Stopped at 74,000 programs" },
+          { metric: "Drill scan: 201 mutants × 500 programs", value: "164 killed · 37 survived" },
+          { metric: "200,000-program run killed (SIGINT/SIGKILL) and resumed", value: "Byte-identical results" },
+        ],
+        note: "Measured on an Apple M3 with 8 threads. The stop rule fired at the same point for 1 and 8 workers, and every killed mutant failed within its first 10 programs. Zero failures on the original core says nothing about bugs uniform random programs rarely reach: two surviving mutants survive only because the uniform generator never produces a backward jump.",
+      },
+      limitations: [
+        "Work in progress: 8 of 12 build steps are done. Final report formats, the calibration benchmark and release hardening (shrinker, Docker image, user guide) are still to come.",
+        "The stop rule's defaults are placeholders until the calibration benchmark exists, so no claim about compute saved is made yet.",
+        "The estimators come from software-fuzzing research; no claim of novelty is made.",
+      ],
+    },
+  },
+  {
     slug: "inspection-station",
     title: "Automated Inspection & Reject Station",
     kind: "Personal project",
