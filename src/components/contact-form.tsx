@@ -39,11 +39,12 @@ export function ContactForm() {
       className="flex flex-col gap-5"
     >
       <input ref={startedAtInput} type="hidden" name="startedAt" />
-      {/* Honeypot: visually hidden and skipped by keyboard and screen readers */}
+      {/* Honeypot: visually hidden and skipped by keyboard and screen readers. Its name and label are
+          deliberately meaningless so browser autofill (which fills fields like "company") never touches it. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
-          Company
-          <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+          Leave this field empty
+          <input type="text" name="hp_trap" tabIndex={-1} autoComplete="off" data-1p-ignore data-lpignore="true" />
         </label>
       </div>
 

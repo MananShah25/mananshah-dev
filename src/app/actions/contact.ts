@@ -16,8 +16,10 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
   const message = String(formData.get("message") ?? "").trim();
   const fields = { name, email, message };
 
-  // Honeypot: hidden from people, so only bots fill it. Pretend success so they don't retry.
-  if (String(formData.get("company") ?? "") !== "") {
+  // Honeypot: hidden from people, so only bots fill it. Pretend success so they don't retry,
+  // but log it so a silently dropped message is visible in the server logs.
+  if (String(formData.get("hp_trap") ?? "") !== "") {
+    console.warn("Contact form: honeypot filled, message dropped");
     return { status: "success", message: "Thanks! Your message has been sent." };
   }
   const startedAt = Number(formData.get("startedAt"));
@@ -68,5 +70,6 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
     };
   }
 
+  console.info("Contact form: message accepted by Resend");
   return { status: "success", message: "Thanks! Your message has been sent. I'll get back to you soon." };
 }
