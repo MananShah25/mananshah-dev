@@ -137,6 +137,7 @@ export const site: SiteContent = {
       items: ["AWS (EC2, CloudWatch)", "Docker", "Kubernetes", "Git", "CMake"],
     },
     { label: "Testing", items: ["pytest", "GoogleTest", "pybind11"] },
+    { label: "Hardware Verification", items: ["Verilator", "RISC-V (RV32I)"] },
     {
       label: "Industrial Automation",
       items: ["OpenPLC", "IEC 61131-3 Ladder Logic", "Modbus TCP"],
