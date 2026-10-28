@@ -48,8 +48,8 @@ export const site: SiteContent = {
       school: "NMIMS University",
       location: "Mumbai, India",
       dates: "Jul 2020 – May 2024",
-      // To show the undergrad GPA on the site, uncomment the next line:
-      // gpa: "3.41 / 4.0",
+      // To hide the undergrad GPA, comment out the next line
+      gpa: "3.41 / 4.0",
       coursework: [
         "Machine Learning",
         "Deep Learning",
