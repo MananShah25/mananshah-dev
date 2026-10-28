@@ -36,7 +36,7 @@ export function ContactForm() {
       onSubmit={() => {
         if (startedAtInput.current) startedAtInput.current.value = String(startedAt.current ?? Date.now());
       }}
-      className="flex flex-col gap-5"
+      className="flex flex-col gap-4"
     >
       <input ref={startedAtInput} type="hidden" name="startedAt" />
       {/* Honeypot: visually hidden and skipped by keyboard and screen readers. Its name and label are
@@ -53,7 +53,7 @@ export function ContactForm() {
         <input id="contact-name" name="name" required maxLength={100} autoComplete="name" defaultValue={fields?.name} className={inputClass} />
       </label>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <label htmlFor="contact-email" className="text-sm font-medium">
           Email
           <input
@@ -90,7 +90,7 @@ export function ContactForm() {
           required
           minLength={10}
           maxLength={5000}
-          rows={6}
+          rows={5}
           defaultValue={fields?.message}
           className={`${inputClass} resize-y`}
         />

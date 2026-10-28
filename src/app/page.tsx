@@ -51,9 +51,7 @@ export default function Home() {
         <Skills />
       </Section>
 
-      <Section id="contact" eyebrow="Say hello" title="Contact">
-        <ContactSection />
-      </Section>
+      <ContactSection />
     </div>
   );
 }
