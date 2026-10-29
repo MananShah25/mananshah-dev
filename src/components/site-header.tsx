@@ -21,7 +21,7 @@ export function SiteHeader() {
           <ul className="flex items-center gap-6 text-sm font-medium">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="relative text-accent-soft transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-accent-bright after:transition-transform after:duration-300 hover:text-accent-bright hover:after:scale-x-100">
+                <Link href={link.href} className="relative text-text transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-accent-bright after:transition-transform after:duration-300 hover:text-accent-bright hover:after:scale-x-100">
                   {link.label}
                 </Link>
               </li>
