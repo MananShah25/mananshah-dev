@@ -12,7 +12,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="border-t border-border py-20">
+    <section id={id} aria-labelledby={`${id}-title`} className="border-t border-border pb-20 pt-12">
       <div data-reveal="up">
         <p className="font-mono text-xs uppercase tracking-widest font-bold text-accent-bright">{eyebrow}</p>
         <h2 id={`${id}-title`} className="mt-2 text-3xl font-bold tracking-tight">
