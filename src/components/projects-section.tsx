@@ -49,8 +49,8 @@ export function ProjectsSection() {
 function FeaturedCard({ project, index }: { project: Project; index: number }) {
   return (
     // Right-column tiles start a beat later so each row cascades
-    <article data-reveal="up" style={revealDelay((index % 2) * 150)} className="group relative flex flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-accent">
-      <p className="font-mono text-xs text-accent">{project.kind}</p>
+    <article data-reveal="up" style={revealDelay((index % 2) * 150)} className="group relative flex flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-accent-bright hover:shadow-[0_18px_40px_-24px_var(--accent-glow)]">
+      <p className="font-mono text-xs font-semibold text-accent-bright">{project.kind}</p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight">
         {/* Stretched link: the whole card opens the case study */}
         <Link href={`/projects/${project.slug}`} className="after:absolute after:inset-0 after:rounded-xl">

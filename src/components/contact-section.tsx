@@ -12,8 +12,8 @@ export function ContactSection() {
       className="grid gap-10 border-t border-border pb-20 pt-12 md:grid-cols-[1fr_1.6fr] md:gap-12"
     >
       <div data-reveal="left">
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">Say hello</p>
-        <h2 id="contact-title" className="mt-2 text-3xl font-semibold tracking-tight">
+        <p className="font-mono text-xs uppercase tracking-widest font-bold text-accent-bright">Say hello</p>
+        <h2 id="contact-title" className="mt-2 text-3xl font-bold tracking-tight">
           Contact
         </h2>
         <p className="mt-6 text-xl font-semibold tracking-tight">Let&apos;s build something together.</p>

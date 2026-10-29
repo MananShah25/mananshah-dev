@@ -22,7 +22,7 @@ export function BackToTop() {
       title="Back to top"
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
-      className={`fixed bottom-6 right-6 z-30 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-accent shadow-lg transition-all duration-300 hover:border-accent hover:-translate-y-0.5 ${
+      className={`fixed bottom-6 right-6 z-30 inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent-bright bg-surface text-accent shadow-lg transition-all duration-300 hover:border-accent hover:-translate-y-0.5 ${
         visible ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >

@@ -14,8 +14,8 @@ export function CaseStudy({ project, caseStudy }: { project: Project; caseStudy:
       </Link>
 
       <header data-reveal="up" className="mt-8">
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">{project.kind}</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">{project.title}</h1>
+        <p className="font-mono text-xs font-bold uppercase tracking-widest text-accent-bright">{project.kind}</p>
+        <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">{project.title}</h1>
         <p className="mt-5 text-lg leading-relaxed text-muted">{project.tagline}</p>
         {caseStudy.credits && <p className="mt-4 text-sm text-muted">{caseStudy.credits}</p>}
 
@@ -82,7 +82,7 @@ export function CaseStudy({ project, caseStudy }: { project: Project; caseStudy:
 function Block({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section data-reveal="up" className="mt-12 border-t border-border pt-10">
-      <h2 className="font-mono text-xs uppercase tracking-widest text-accent">{title}</h2>
+      <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-accent-bright">{title}</h2>
       <div className="mt-4 leading-relaxed text-muted">{children}</div>
     </section>
   );
